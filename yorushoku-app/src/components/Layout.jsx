@@ -1,7 +1,13 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import Sidebar from './Sidebar';
 
 export default function Layout() {
+  const { user, loading } = useAuth();
+
+  if (loading) return <div style={{ background: 'linear-gradient(160deg, #050508 0%, #080415 50%, #050510 100%)' }} className="w-full h-screen" />;
+  if (!user) return <Navigate to="/" />;
+
   return (
     <div className="flex min-h-screen" style={{ background: 'linear-gradient(160deg, #050508 0%, #080415 50%, #050510 100%)' }}>
       {/* 背景の光彩 */}

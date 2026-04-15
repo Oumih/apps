@@ -3,8 +3,8 @@ import Login from './pages/Login';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Sales from './pages/Sales';
+import SalesInput from './pages/SalesInput';
 import Casts from './pages/Casts';
-import Customers from './pages/Customers';
 import Store from './pages/Store';
 
 export default function App() {
@@ -15,8 +15,8 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sales" element={<Sales />} />
+          <Route path="/sales-input" element={<SalesInput />} />
           <Route path="/casts" element={<Casts />} />
-          <Route path="/customers" element={<Customers />} />
           <Route path="/store" element={<Store />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />

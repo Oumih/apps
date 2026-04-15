@@ -225,3 +225,37 @@ export const yearlySales = [
   { year: '2023', amount: 112000000 },
   { year: '2024', amount: 124000000 },
 ];
+
+// 日次キャスト別売上（ダッシュボード用）
+export const dailyCastSales = {
+  '2026-04-15': [
+    { castId: 1, castName: '蒼月 雪人', amount: 380000 },
+    { castId: 2, castName: '紅葉 凌', amount: 240000 },
+    { castId: 3, castName: '銀河 颯', amount: 180000 },
+    { castId: 4, castName: '星空 蓮', amount: 120000 },
+  ],
+  '2026-04-14': [
+    { castId: 2, castName: '紅葉 凌', amount: 310000 },
+    { castId: 1, castName: '蒼月 雪人', amount: 290000 },
+    { castId: 4, castName: '星空 蓮', amount: 160000 },
+    { castId: 3, castName: '銀河 颯', amount: 140000 },
+  ],
+  '2026-04-13': [
+    { castId: 1, castName: '蒼月 雪人', amount: 520000 },
+    { castId: 3, castName: '銀河 颯', amount: 330000 },
+    { castId: 2, castName: '紅葉 凌', amount: 210000 },
+  ],
+  '2026-04-12': [],
+  '2026-04-11': [
+    { castId: 4, castName: '星空 蓮', amount: 450000 },
+    { castId: 1, castName: '蒼月 雪人', amount: 390000 },
+    { castId: 2, castName: '紅葉 凌', amount: 280000 },
+    { castId: 3, castName: '銀河 颯', amount: 220000 },
+  ],
+};
+
+// Adminユーザー
+export const admins = [
+  { id: 1, name: '田中 マネージャー', email: 'tanaka@princess-time.jp' },
+  { id: 2, name: '佐藤 スタッフ', email: 'sato@princess-time.jp' },
+];

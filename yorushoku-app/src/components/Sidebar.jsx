@@ -4,8 +4,8 @@ import { store } from '../data/mockData';
 const navItems = [
   { to: '/dashboard', icon: '🏠', label: 'ダッシュボード' },
   { to: '/sales', icon: '💴', label: '売上管理' },
+  { to: '/sales-input', icon: '✏️', label: '売上入力' },
   { to: '/casts', icon: '✨', label: 'キャスト管理' },
-  { to: '/customers', icon: '👑', label: '顧客管理' },
   { to: '/store', icon: '🏯', label: '店舗管理' },
 ];
 

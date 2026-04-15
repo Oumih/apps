@@ -1,0 +1,23 @@
+graph LR
+    AU["<b>auth_users</b><br/>─────────────<br/>🔑 id : uuid PK<br/>📧 email : text"]
+
+    PR["<b>profiles</b><br/>─────────────<br/>🔑 id : uuid PK/FK<br/>🏪 store_id : uuid FK<br/>🎭 role : text<br/>　　owner / admin<br/>📝 name : text<br/>📅 created_at : timestamptz"]
+
+    ST["<b>stores</b><br/>─────────────<br/>🔑 id : uuid PK<br/>👤 owner_id : uuid FK<br/>📝 name : text<br/>📍 address : text<br/>🌐 lat : float8<br/>🌐 lng : float8<br/>📞 phone : text<br/>🕐 open_time : time<br/>🕐 close_time : time<br/>📅 created_at : timestamptz"]
+
+    CA["<b>casts</b><br/>─────────────<br/>🔑 id : uuid PK<br/>🏪 store_id : uuid FK<br/>📝 name : text<br/>📝 kana : text<br/>📄 profile : text<br/>📅 joined_at : date<br/>✅ is_active : bool<br/>📅 created_at : timestamptz"]
+
+    SA["<b>sales</b><br/>─────────────<br/>🔑 id : uuid PK<br/>🏪 store_id : uuid FK<br/>✨ cast_id : uuid FK<br/>💴 amount : int<br/>📅 date : date<br/>📄 note : text<br/>📅 created_at : timestamptz"]
+
+    AU -->|"1対1"| PR
+    AU -->|"1対多 owns"| ST
+    PR -->|"多対1"| ST
+    ST -->|"1対多 has"| CA
+    ST -->|"1対多 has"| SA
+    CA -->|"1対多"| SA
+
+    style AU fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style PR fill:#fef9c3,stroke:#eab308,color:#713f12
+    style ST fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style CA fill:#fce7f3,stroke:#ec4899,color:#831843
+    style SA fill:#fee2e2,stroke:#ef4444,color:#7f1d1d

@@ -1,0 +1,43 @@
+flowchart TD
+    A(["🔐 ログイン"])
+
+    A -->|"role = owner\n複数店舗"| B["🏯 店舗選択"]
+    A -->|"role = owner\n1店舗のみ"| D
+    A -->|"role = admin"| F
+
+    B -->|"店舗を選択"| D
+
+    subgraph OWNER ["　　　　　　　　　オーナー専用　　　　　　　　　"]
+        D(["🏠 ダッシュボード"])
+        E["💴 売上管理"]
+        G["✨ キャスト・Admin管理"]
+        H["🏯 店舗管理（閲覧のみ）"]
+
+        D <-->|"メニュー"| E
+        D <-->|"メニュー"| G
+        D <-->|"メニュー"| H
+        D <-->|"メニュー"| F
+    end
+
+    subgraph SHARED ["　　　　　　オーナー・admin共通　　　　　　"]
+        F["📝 売上入力"]
+        F -->|"登録完了"| F
+    end
+
+    subgraph MODAL ["モーダル"]
+        G -->|"追加・編集"| M1["キャスト追加/編集"]
+        G -->|"追加・編集"| M2["Admin追加/編集"]
+    end
+
+    style A fill:#ffe4ec,stroke:#ff2d78,color:#7f0030
+    style B fill:#fff8e0,stroke:#f59e0b,color:#78350f
+    style D fill:#ffe4ec,stroke:#ff2d78,color:#7f0030
+    style E fill:#ffe4ec,stroke:#ff2d78,color:#7f0030
+    style F fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style G fill:#ffe4ec,stroke:#ff2d78,color:#7f0030
+    style H fill:#ffe4ec,stroke:#ff2d78,color:#7f0030
+    style M1 fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+    style M2 fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+    style OWNER fill:#fff5f7,stroke:#ff2d78,color:#cc0044
+    style SHARED fill:#eff6ff,stroke:#3b82f6,color:#1e40af
+    style MODAL fill:#f5f3ff,stroke:#8b5cf6,color:#5b21b6

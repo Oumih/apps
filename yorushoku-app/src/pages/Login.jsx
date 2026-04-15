@@ -1,19 +1,26 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
-  const [id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (id === 'admin' && password === '1234') {
-      navigate('/dashboard');
+    setError('');
+    setLoading(true);
+    const err = await login(email, password);
+    if (err) {
+      setError(err.message || 'ログインに失敗しました');
     } else {
-      setError('IDまたはパスワードが正しくありません');
+      navigate('/dashboard');
     }
+    setLoading(false);
   };
 
   return (
@@ -103,13 +110,14 @@ export default function Login() {
                 className="block text-xs mb-2 tracking-widest"
                 style={{ color: '#ff8cbb', letterSpacing: '0.2em' }}
               >
-                STORE ID
+                EMAIL
               </label>
               <input
-                type="text"
-                value={id}
-                onChange={(e) => setId(e.target.value)}
-                placeholder="admin"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="owner@example.com"
+                disabled={loading}
                 className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
@@ -141,6 +149,7 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
+                disabled={loading}
                 className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
@@ -171,7 +180,8 @@ export default function Login() {
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl font-bold text-sm tracking-widest transition-all hover:scale-[1.02] active:scale-95"
+              disabled={loading}
+              className="w-full py-3.5 rounded-xl font-bold text-sm tracking-widest transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{
                 background: 'linear-gradient(135deg, #ff2d78, #cc0055)',
                 color: '#fff',
@@ -180,13 +190,13 @@ export default function Login() {
                 boxShadow: '0 0 20px rgba(255,45,120,0.5), 0 4px 15px rgba(0,0,0,0.3)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 30px rgba(255,45,120,0.7), 0 4px 20px rgba(0,0,0,0.4)';
+                if (!loading) e.currentTarget.style.boxShadow = '0 0 30px rgba(255,45,120,0.7), 0 4px 20px rgba(0,0,0,0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(255,45,120,0.5), 0 4px 15px rgba(0,0,0,0.3)';
+                if (!loading) e.currentTarget.style.boxShadow = '0 0 20px rgba(255,45,120,0.5), 0 4px 15px rgba(0,0,0,0.3)';
               }}
             >
-              LOGIN
+              {loading ? 'ログイン中...' : 'LOGIN'}
             </button>
           </form>
 
@@ -198,7 +208,7 @@ export default function Login() {
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
-            デモ: ID = <span style={{ color: '#ffe44d' }}>admin</span> / PW = <span style={{ color: '#ffe44d' }}>1234</span>
+            Supabaseで認証します
           </p>
         </div>
       </div>
