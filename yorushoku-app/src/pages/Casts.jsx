@@ -153,14 +153,33 @@ function CastTab() {
 
     if (!profile) return;
 
-    const { data } = await supabase
+    const { data: castsData } = await supabase
       .from('casts')
       .select('*')
       .eq('store_id', profile.store_id)
       .eq('is_active', true)
       .order('created_at');
 
-    setCasts(data || []);
+    // 各キャストの累計売上を計算
+    const { data: salesData } = await supabase
+      .from('sales')
+      .select('cast_id, amount')
+      .eq('store_id', profile.store_id);
+
+    const salesMap = {};
+    if (salesData) {
+      salesData.forEach((sale) => {
+        if (!salesMap[sale.cast_id]) salesMap[sale.cast_id] = 0;
+        salesMap[sale.cast_id] += sale.amount;
+      });
+    }
+
+    const castsWithSales = (castsData || []).map((cast) => ({
+      ...cast,
+      totalSales: salesMap[cast.id] || 0,
+    }));
+
+    setCasts(castsWithSales);
   };
 
   const openAdd = () => {
@@ -281,7 +300,7 @@ function CastTab() {
                 <td className="px-5 py-4" style={{ color: 'rgba(255,140,187,0.5)' }}>{cast.kana || '—'}</td>
                 <td className="px-5 py-4" style={{ color: 'rgba(240,220,230,0.6)' }}>{cast.joined_at || '—'}</td>
                 <td className="px-5 py-4 font-bold" style={{ color: NEON_GOLD, fontFamily: "'Cinzel', serif" }}>
-                  —
+                  {fmt(cast.totalSales)}
                 </td>
                 <td className="px-5 py-4">
                   <div className="flex items-center gap-2 justify-end">
