@@ -23,7 +23,7 @@ export default async function MyPage() {
     <div className="max-w-2xl mx-auto px-4 py-8">
       {/* User Info */}
       <div className="p-8 bg-white rounded-lg shadow-sm border border-gray-200">
-        <h1 className="text-4xl font-black text-blue-700">
+        <h1 className="text-4xl font-black text-amber-700">
           👤 マイページ
         </h1>
         <div className="mt-6 space-y-3">

@@ -93,7 +93,7 @@ export default async function PostDetailPage({
       {/* Post Title and Info */}
       <div className="mb-8">
         <div className="flex items-start justify-between gap-4 mb-4">
-          <h1 className="text-4xl font-black text-blue-700 flex-1 leading-tight">{post.title}</h1>
+          <h1 className="text-4xl font-black text-amber-700 flex-1 leading-tight">{post.title}</h1>
           {isParticipant && !isAuthor && (
             <ParticipateButton postId={id} isParticipant={isParticipant} isFull={isFull} isSmall={true} />
           )}
@@ -111,7 +111,7 @@ export default async function PostDetailPage({
 
       {/* Participate Section - for non-participants */}
       {!isAuthor && !isParticipant && (
-        <div className="mb-8 p-6 bg-blue-50 border-2 border-blue-200 rounded-lg">
+        <div className="mb-8 p-6 bg-amber-50 border-2 border-amber-200 rounded-lg">
           <ParticipateButton postId={id} isParticipant={isParticipant} isFull={isFull} />
         </div>
       )}
@@ -140,7 +140,7 @@ export default async function PostDetailPage({
 
         {/* Comment Form - Only for participants */}
         {(isParticipant || isAuthor) && (
-          <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg">
+          <div className="p-6 bg-amber-50 border-2 border-amber-200 rounded-lg">
             <CommentForm postId={id} />
           </div>
         )}

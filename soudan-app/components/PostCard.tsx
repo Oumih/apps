@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 const TAG_COLORS: Record<string, { bg: string; text: string }> = {
-  '恋愛': { bg: 'bg-slate-100', text: 'text-slate-700' },
-  '仕事': { bg: 'bg-slate-100', text: 'text-slate-700' },
-  'メンタル': { bg: 'bg-slate-100', text: 'text-slate-700' },
-  'その他': { bg: 'bg-slate-100', text: 'text-slate-700' },
+  '恋愛': { bg: 'bg-rose-100', text: 'text-rose-700' },
+  '仕事': { bg: 'bg-sky-100', text: 'text-sky-700' },
+  'メンタル': { bg: 'bg-emerald-100', text: 'text-emerald-700' },
+  'その他': { bg: 'bg-amber-100', text: 'text-amber-700' },
 }
 
 interface PostCardProps {
@@ -59,7 +59,7 @@ export function PostCard({
             {title}
           </h3>
           {isOwnPost && (
-            <span className="px-3 py-1 text-xs font-bold bg-blue-600 text-white rounded-full whitespace-nowrap">
+            <span className="px-3 py-1 text-xs font-bold bg-amber-600 text-white rounded-full whitespace-nowrap">
               👤 私の投稿
             </span>
           )}

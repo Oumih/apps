@@ -79,7 +79,7 @@ export function ParticipateButton({
           setLoading(false)
         }}
         disabled={loading}
-        className={`bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95 ${
+        className={`bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95 ${
           isSmall
             ? 'px-3 py-1 text-xs'
             : 'px-4 py-3 w-full'

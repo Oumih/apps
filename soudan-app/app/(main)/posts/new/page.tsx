@@ -18,7 +18,7 @@ export default function NewPostPage() {
         </Link>
       </div>
 
-      <h1 className="text-4xl font-black text-blue-700 mb-10">
+      <h1 className="text-4xl font-black text-amber-700 mb-10">
         ✨ 新しい相談を投稿
       </h1>
 
@@ -39,7 +39,7 @@ export default function NewPostPage() {
             type="text"
             maxLength={100}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium text-slate-900"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium text-slate-900"
             placeholder="例: 仕事の人間関係について悩んでいます"
           />
           {state.errors?.title && (
@@ -55,7 +55,7 @@ export default function NewPostPage() {
             id="content"
             name="content"
             rows={5}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none font-medium text-slate-900"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-none font-medium text-slate-900"
             placeholder="💡 詳細な内容を書いてください"
           />
         </div>
@@ -69,7 +69,7 @@ export default function NewPostPage() {
             name="tag"
             required
             defaultValue=""
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium text-slate-900"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium text-slate-900"
           >
             <option value="">📍 選択してください</option>
             {TAGS.map((tag) => (
@@ -92,7 +92,7 @@ export default function NewPostPage() {
             name="max_participants"
             required
             defaultValue=""
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium text-slate-900"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium text-slate-900"
           >
             <option value="">📍 選択してください</option>
             {MAX_PARTICIPANTS_OPTIONS.map((num) => (
@@ -110,7 +110,7 @@ export default function NewPostPage() {
           <button
             type="submit"
             disabled={isPending}
-            className="flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
+            className="flex-1 py-3 px-4 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
           >
             {isPending ? '📤 投稿中...' : '📤 投稿する'}
           </button>

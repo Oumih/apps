@@ -37,7 +37,7 @@ export default function RegisterPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h1 className="text-4xl font-black text-blue-700">
+        <h1 className="text-4xl font-black text-amber-700">
           ✨ アカウント登録
         </h1>
         <p className="mt-3 text-slate-600 font-semibold">soudan-app に登録しましょう</p>
@@ -59,7 +59,7 @@ export default function RegisterPage() {
             type="text"
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium"
             placeholder="ニックネーム"
           />
         </div>
@@ -74,7 +74,7 @@ export default function RegisterPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium"
             placeholder="you@example.com"
           />
         </div>
@@ -89,7 +89,7 @@ export default function RegisterPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium"
             placeholder="••••••••"
           />
         </div>
@@ -97,7 +97,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
+          className="w-full py-3 px-4 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
         >
           {loading ? '⏳ 登録中...' : '🚀 登録'}
         </button>
@@ -105,7 +105,7 @@ export default function RegisterPage() {
 
       <p className="text-center text-sm text-slate-600">
         すでにアカウントをお持ちの場合は{' '}
-        <Link href="/login" className="font-bold text-blue-600 hover:text-blue-700 hover:underline">
+        <Link href="/login" className="font-bold text-amber-600 hover:text-amber-700 hover:underline">
           ここからログイン
         </Link>
       </p>

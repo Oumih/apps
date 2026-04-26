@@ -71,7 +71,7 @@ export function Navbar() {
                 href={tab.path}
                 className={`px-4 py-2 text-sm font-bold rounded-lg transition ${
                   isActive(tab.path)
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-amber-600 text-white'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >

@@ -46,7 +46,7 @@ export function CommentForm({ postId }: CommentFormProps) {
         onChange={(e) => setContent(e.target.value)}
         disabled={loading}
         rows={4}
-        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none disabled:bg-gray-100 font-medium text-gray-700 placeholder-gray-400"
+        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-none disabled:bg-gray-100 font-medium text-gray-700 placeholder-gray-400"
         placeholder="💡 回答や意見を書いてください"
       />
 
@@ -56,7 +56,7 @@ export function CommentForm({ postId }: CommentFormProps) {
       <button
         type="submit"
         disabled={loading || !content.trim()}
-        className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
+        className="w-full px-4 py-3 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
       >
         {loading ? '📤 投稿中...' : '📤 投稿する'}
       </button>

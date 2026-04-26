@@ -35,7 +35,7 @@ export default function LoginPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h1 className="text-4xl font-black text-blue-700">
+        <h1 className="text-4xl font-black text-amber-700">
           💬 soudan-app
         </h1>
         <p className="mt-3 text-slate-600 font-semibold">✨ ちょい相談マッチングアプリ</p>
@@ -58,7 +58,7 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium"
             placeholder="you@example.com"
           />
         </div>
@@ -73,7 +73,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-medium"
             placeholder="••••••••"
           />
         </div>
@@ -81,7 +81,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
+          className="w-full py-3 px-4 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all transform hover:scale-105 active:scale-95"
         >
           {loading ? '⏳ ログイン中...' : '🚀 ログイン'}
         </button>
@@ -89,7 +89,7 @@ export default function LoginPage() {
 
       <p className="text-center text-sm text-slate-600">
         アカウントがない場合は{' '}
-        <Link href="/register" className="font-bold text-blue-600 hover:text-blue-700 hover:underline">
+        <Link href="/register" className="font-bold text-amber-600 hover:text-amber-700 hover:underline">
           ここから登録
         </Link>
       </p>

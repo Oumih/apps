@@ -47,7 +47,7 @@ export function CommentList({ comments, currentUserId }: CommentListProps) {
               <div
                 className={`max-w-xs px-4 py-3 rounded-lg shadow-sm ${
                   isOwnComment
-                    ? 'bg-blue-600 rounded-br-none text-white'
+                    ? 'bg-amber-600 rounded-br-none text-white'
                     : 'bg-white rounded-tl-none text-slate-900 font-medium border border-gray-200'
                 }`}
               >
